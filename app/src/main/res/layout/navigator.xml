@@ -19,19 +19,4 @@
         app:navGraph="@navigation/nav_graph"
         />
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/controller_back_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        app:srcCompat="@drawable/ic_arrow_back_black_24dp"-->
-
-<!--        app:fabSize="mini"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:rippleColor="@color/grey"-->
-<!--        android:contentDescription="@+string/Back"-->
-<!--        />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

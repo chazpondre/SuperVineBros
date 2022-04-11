@@ -1,11 +1,13 @@
-package ca.thenightcrew.supervinebros.levels
+package ca.thenightcrew.supervinebros.levels.recycler
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ca.thenightcrew.supervinebros.R
-import com.google.android.material.snackbar.Snackbar
+import ca.thenightcrew.supervinebros.fragments.LevelSelectorFragmentDirections
+import ca.thenightcrew.supervinebros.levels.Level
 
 internal class ViewBinder(item: View) : RecyclerView.ViewHolder(item) {
     fun bind(level: Level) {
@@ -15,7 +17,8 @@ internal class ViewBinder(item: View) : RecyclerView.ViewHolder(item) {
         text.text = level.title
         image.setImageResource(level.resourceId)
         image.setOnClickListener {
-            Snackbar.make(itemView, "MenuItem", Snackbar.LENGTH_SHORT).show()
+            val transition = LevelSelectorFragmentDirections.actionMenuFragmentToGameFragment(level.levelIndex)
+            itemView.findNavController().navigate(transition)
         }
     }
 }

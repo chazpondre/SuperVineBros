@@ -1,9 +1,11 @@
-package ca.thenightcrew.supervinebros.levels
+package ca.thenightcrew.supervinebros.levels.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import ca.thenightcrew.supervinebros.R
+import ca.thenightcrew.supervinebros.levels.Level
+import ca.thenightcrew.supervinebros.levels.NoDiffer
 
 internal class MenuAdapter : ListAdapter<Level, ViewBinder>(NoDiffer<Level>()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewBinder {

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import ca.thenightcrew.supervinebros.R
-import ca.thenightcrew.supervinebros.levels.MenuAdapter
+import ca.thenightcrew.supervinebros.levels.recycler.MenuAdapter
 import ca.thenightcrew.supervinebros.levels.appLevels
 
 
