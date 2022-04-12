@@ -15,7 +15,7 @@ private val KEYFRAME = 93
 abstract class KeyFrame(
     val keyTimes: List<KeyTime>,
     private val tweening: Boolean,
-    private val loopTimes: Int = -1
+    protected var loopTimes: Int = -1
 ) {
     var timelineName: String? = null
 

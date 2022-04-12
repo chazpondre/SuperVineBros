@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="ca.thenightcrew.supervinebros.GameFragment"
+        android:name="ca.thenightcrew.supervinebros.fragments.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <argument

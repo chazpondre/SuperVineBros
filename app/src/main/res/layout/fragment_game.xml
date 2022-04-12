@@ -4,19 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameFragment">
+    android:background="@drawable/gradient_super_sky"
+    tools:context=".fragments.GameFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+        <ca.thenightcrew.supervinebros.game_engine.level.components.LevelRecyclerView
+            android:id="@+id/slide_level_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/gameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_back_button" />
+        <TextView
+            android:id="@+id/slide_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hello" />
+
+        <ImageView
+            android:id="@+id/black_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/slide_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:fontFamily="@font/digital_font"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="COURSE CLEARED!" />
+
+        <TextView
+            android:id="@+id/slide_coins_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="248dp"
+            android:fontFamily="@font/digital_font"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Coins = 100" />
+
+        <TextView
+            android:id="@+id/slide_time_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="294dp"
+            android:fontFamily="@font/digital_font"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Time = 120" />
+
+        <TextView
+            android:id="@+id/slide_score_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="374dp"
+            android:fontFamily="@font/digital_font"
+            android:textColor="@color/white"
+            android:textSize="42sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Score = 0" />
+
+        <include layout="@layout/layout_sprite" />
+        <include layout="@layout/layout_welcome" android:id="@+id/slide_welcome"/>
+        <include android:visibility="invisible" android:id="@+id/slide_congratulations_layout" layout="@layout/layout_congratulations" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/game_back_button"
