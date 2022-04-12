@@ -11,8 +11,22 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/create_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="back"
+
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/grey"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
     <EditText
-        android:id="@+id/loginUserName"
+        android:id="@+id/createUserName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -27,15 +41,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2b" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView2b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/digital_font"
-        android:text="Login"
+        android:text="Create New User"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="@+id/imageViewb"
@@ -43,28 +57,29 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewb" />
 
     <EditText
-        android:id="@+id/loginPassword"
+        android:id="@+id/createPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toEndOf="@+id/loginUserName"
+        app:layout_constraintEnd_toEndOf="@+id/createUserName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/loginUserName"
-        app:layout_constraintTop_toBottomOf="@+id/loginUserName" />
+        app:layout_constraintStart_toStartOf="@+id/createUserName"
+        app:layout_constraintTop_toBottomOf="@+id/createUserName" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/create_user_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Login"
+        android:text="Create New User"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/loginPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/createPassword" />
 
     <ImageView
         android:id="@+id/imageViewb"
@@ -73,52 +88,41 @@
         android:layout_marginStart="185dp"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="185dp"
-        android:src="@drawable/slide_mario_peace"
+        android:src="@drawable/slide_koopa_troopa_00000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/login_to_create_user_button"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="Create New User"
-        android:textColor="@color/grey"
-        app:layout_constraintEnd_toStartOf="@+id/login_button"
-        app:layout_constraintTop_toTopOf="@+id/login_button" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView3b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginTop="92dp"
-        android:src="@drawable/slide_goomba_00001"
-        app:layout_constraintStart_toStartOf="@+id/loginPassword"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+        android:src="@drawable/slide_goomba_00002"
+        app:layout_constraintStart_toStartOf="@+id/createPassword"
+        app:layout_constraintTop_toBottomOf="@+id/createPassword" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/slide_koopa_troopa_00001"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="@+id/login_button" />
+        android:id="@+id/imageView4b"
+        android:layout_width="38dp"
+        android:layout_height="53dp"
+        android:src="@drawable/slide_mario_walk_1"
+        app:layout_constraintBottom_toTopOf="@+id/create_user_button"
+        app:layout_constraintEnd_toEndOf="@+id/create_user_button" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView5b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/slide_cloud_sprite"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintEnd_toStartOf="@+id/textView2b"
+        app:layout_constraintTop_toTopOf="@+id/textView2b" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView6b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"

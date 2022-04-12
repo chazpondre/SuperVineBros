@@ -1,9 +1,11 @@
 package ca.thenightcrew.supervinebros.game_engine
 
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.*
 import android.view.View
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import ca.thenightcrew.supervinebros.R
 import ca.thenightcrew.supervinebros.game_engine.Utils.Measurement.pixelToDP
@@ -18,13 +20,22 @@ class Utils {
         private val threadNT: ExecutorService = Executors.newSingleThreadExecutor()
         private val threadBG: ExecutorService = Executors.newSingleThreadExecutor()
         private val threadDB: ExecutorService = Executors.newSingleThreadExecutor()
+
+        private fun threadMain(context: Context) = ContextCompat.getMainExecutor(context);
+
         fun runOnBackgroundThread(runnable: Runnable?) {
             threadBG.execute(runnable)
+
         }
 
-        fun runOnDBThread(runnable: Runnable?) {
-            threadDB.execute(runnable)
+        fun runOnDBThread(action: () -> Unit) {
+            threadDB.execute(action)
         }
+
+        fun runOnMainThread(context: Context, action: () -> Unit) {
+            threadMain(context).execute(action)
+        }
+
 
         fun runOnNetworkThread(runnable: Runnable?) {
             threadNT.execute(runnable)

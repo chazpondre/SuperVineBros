@@ -37,6 +37,7 @@ abstract class LevelBinderFragment : Fragment(), LevelEventHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d("onViewCreated", "activity")
         super.onViewCreated(view, savedInstanceState)
+
         backButton.setOnClickListener {
             val destination = GameFragmentDirections.actionGameFragmentToMenuFragment()
             view.findNavController().navigate(destination)

@@ -9,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import ca.thenightcrew.supervinebros.R
 import ca.thenightcrew.supervinebros.levels.recycler.MenuAdapter
 import ca.thenightcrew.supervinebros.levels.appLevels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 private val tintList = intArrayOf(
@@ -25,6 +27,8 @@ private val tintList = intArrayOf(
 )
 
 class LevelSelectorFragment : Fragment() {
+    private val logoutButton: View by lazy { requireView().findViewById(R.id.menu_logout_button) }
+    private val rankingsButton: View by lazy { requireView().findViewById(R.id.rank_button) }
     private val menuBg: View by lazy { requireView().findViewById(R.id.menu_bg) }
     private val levelRecycler: RecyclerView by lazy { requireView().findViewById(R.id.level_recycler) }
     private val levelLayoutManager: LinearLayoutManager by lazy {
@@ -37,11 +41,26 @@ class LevelSelectorFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_menu, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_level_selector, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         levelRecycler.configure()
+
+        logoutButton.setOnClickListener {
+            MaterialAlertDialogBuilder(view.context)
+                .setTitle("Sign Out")
+                .setMessage("Would you like to log out of this user")
+                .setNegativeButton("Cancel") { dialog, _ ->
+                    dialog.cancel()
+                }
+                .setPositiveButton("Log Out") { _, _ ->
+                    val action =
+                    LevelSelectorFragmentDirections.actionMenuFragmentToLoginFragment()
+                    view.findNavController().navigate(action)
+                }
+                .show()
+        }
     }
 
     private fun RecyclerView.configure() {
