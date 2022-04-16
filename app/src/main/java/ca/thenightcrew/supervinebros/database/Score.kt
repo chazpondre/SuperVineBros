@@ -4,7 +4,7 @@ import androidx.room.*
 
 @Entity
 data class Score (
-    @PrimaryKey(autoGenerate = true) var date: Int,
+    @PrimaryKey(autoGenerate = true) var date: Int = (System.currentTimeMillis() / 1000).toInt(),
     val amount: Int
 )
 

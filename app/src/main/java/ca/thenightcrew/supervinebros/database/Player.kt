@@ -5,8 +5,8 @@ import androidx.room.*
 @Entity
 data class Player (
     @PrimaryKey var id: String,
-    val lastPlayed: Int,
-    val levelsUnlocked: Int,
+    var lastPlayed: Int,
+    var levelsUnlocked: Int,
     val password: String,
     val lives: Int
 )

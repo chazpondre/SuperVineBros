@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import ca.thenightcrew.supervinebros.R
+import ca.thenightcrew.supervinebros.game_engine.AppInfo
 import ca.thenightcrew.supervinebros.levels.recycler.MenuAdapter
 import ca.thenightcrew.supervinebros.levels.appLevels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -27,7 +28,7 @@ private val tintList = intArrayOf(
 )
 
 class LevelSelectorFragment : Fragment() {
-    private val logoutButton: View by lazy { requireView().findViewById(R.id.menu_logout_button) }
+    private val logoutButton: View by lazy { requireView().findViewById(R.id.logout_button) }
     private val rankingsButton: View by lazy { requireView().findViewById(R.id.rank_button) }
     private val menuBg: View by lazy { requireView().findViewById(R.id.menu_bg) }
     private val levelRecycler: RecyclerView by lazy { requireView().findViewById(R.id.level_recycler) }
@@ -57,9 +58,16 @@ class LevelSelectorFragment : Fragment() {
                 .setPositiveButton("Log Out") { _, _ ->
                     val action =
                     LevelSelectorFragmentDirections.actionMenuFragmentToLoginFragment()
+                    AppInfo.player = null
                     view.findNavController().navigate(action)
                 }
                 .show()
+        }
+
+        rankingsButton.setOnClickListener {
+            val action =
+                LevelSelectorFragmentDirections.actionMenuFragmentToRankingsFragment()
+            requireView().findNavController().navigate(action)
         }
     }
 
@@ -69,7 +77,9 @@ class LevelSelectorFragment : Fragment() {
             adapter = it
             it.submitList(appLevels)
         }
-        // TODO recyclerView.scrollToPosition(viewModel.getRecyclerPosition());
+
+        AppInfo.player?.lastPlayed?.let { scrollToPosition(it) }
+
         val snapper = PagerSnapHelper().attachToRecyclerView(this)
         configureScrollListener()
     }

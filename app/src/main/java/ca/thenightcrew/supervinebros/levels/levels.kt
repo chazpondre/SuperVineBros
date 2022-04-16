@@ -7,10 +7,10 @@ import ca.thenightcrew.supervinebros.game_engine.level.components.items.types.Le
 
 
 internal val appLevels = mutableListOf(
-    Level(0,"Level 1", R.drawable.menu_vine_bros) { resources: Resources -> LevelOne(resources) },
-    Level(1, "Level 2", R.drawable.menu_vine_bros) { resources: Resources -> LevelTwo(resources) },
-    Level(2, "Level 3", R.drawable.menu_vine_bros) { resources: Resources -> LevelTwo(resources) },
-    Level(3, "Level 4", R.drawable.menu_vine_bros) { resources: Resources -> LevelTwo(resources) }
+    Level(0,"Toad's Galaxy", R.drawable.level_toadsgalaxy) { resources: Resources -> LevelOne(resources) },
+    Level(1, "Mario world", R.drawable.level_marioworld) { resources: Resources -> LevelTwo(resources) },
+    Level(2, "Shy Guys Quest", R.drawable.level_shyguysquest) { resources: Resources -> LevelTwo(resources) },
+    Level(3, "Bowsers Quest", R.drawable.level_bowsersquest) { resources: Resources -> LevelTwo(resources) }
 )
 
 

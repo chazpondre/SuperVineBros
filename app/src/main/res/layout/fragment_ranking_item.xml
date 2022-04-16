@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Todo: Change id of CL -->
+<!--Todo: remove tools:ignore="HardcodedText" -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rankItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/rank_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/rank_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:textFontWeight="800"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_num"
+        app:layout_constraintStart_toEndOf="@+id/rank_num"
+        tools:text="Fred Vanvleet" />
+
+    <TextView
+        android:id="@+id/rankScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/digital_font"
+        android:textColor="@color/purple_500"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rank_num"
+        tools:text="1082" />
+
+    <TextView
+        android:id="@+id/rankCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/rank_user"
+        app:layout_constraintTop_toTopOf="@+id/rank_num"
+        tools:text="Score" />
+</androidx.constraintlayout.widget.ConstraintLayout>

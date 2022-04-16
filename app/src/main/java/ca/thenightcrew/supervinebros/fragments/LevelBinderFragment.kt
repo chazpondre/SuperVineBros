@@ -11,12 +11,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import ca.thenightcrew.supervinebros.R
 import ca.thenightcrew.supervinebros.animation.AnimationEngine
+import ca.thenightcrew.supervinebros.database.Coins
+import ca.thenightcrew.supervinebros.database.PlayerCoins
+import ca.thenightcrew.supervinebros.database.PlayerScores
+import ca.thenightcrew.supervinebros.database.Score
+import ca.thenightcrew.supervinebros.db
+import ca.thenightcrew.supervinebros.game_engine.AppInfo
+import ca.thenightcrew.supervinebros.game_engine.Utils
 import ca.thenightcrew.supervinebros.game_engine.gameSave
 import ca.thenightcrew.supervinebros.game_engine.level.LevelEventHandler
 import ca.thenightcrew.supervinebros.game_engine.level.SlideViewModel
 import ca.thenightcrew.supervinebros.game_engine.sprite.SpriteFactory
 import ca.thenightcrew.supervinebros.levels.appLevels
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.runBlocking
 
 abstract class LevelBinderFragment : Fragment(), LevelEventHandler {
     private val args: GameFragmentArgs by navArgs()
@@ -56,15 +64,48 @@ abstract class LevelBinderFragment : Fragment(), LevelEventHandler {
             //  Level changes here
             slideViewModel.setLevels(listOf(appLevels[args.level].buildLevel(resources)))
             slideViewModel.subscribeToLevelEvents(viewLifecycleOwner, this)
+
+            if (AppInfo.player != null) {
+                val player = AppInfo.player!!
+                player.lastPlayed = args.level
+                Utils.Threads.runOnDBThread {
+                    runBlocking {
+                        db.player().setLastPlayed(player.id, args.level)
+                    }
+                }
+            }
         }
     }
 
     override fun onDetach() {
+        save()
         animationEngine.kill()
         super.onDetach()
-        saveGameInfo(onSaveGame());
+        //saveGameInfo(onSaveGame());
     }
 
     private fun saveGameInfo(gameSave: gameSave) {}
-    abstract fun onSaveGame(): gameSave
+
+    override fun save() {
+        Log.d("Saving PLayer Stats", "levels unlocked")
+        val scoreKeeper = slideViewModel.scoreKeeper
+        val coinsCollected = scoreKeeper.score
+        val scoreCollected = scoreKeeper.totalScore
+
+        val player = AppInfo.player ?: return
+        player.levelsUnlocked++
+
+        Utils.Threads.runOnDBThread {
+            runBlocking {
+                val coins = Coins(amount = coinsCollected)
+                val score = Score(amount = scoreCollected.toInt())
+                db.player().setLevelsUnlock(player.id, player.levelsUnlocked)
+                db.coins().add(coins)
+                db.playerCoins().add(PlayerCoins(player.id, coins.date))
+                db.score().add(score)
+                db.playerScores().add(PlayerScores(player.id, score.date))
+                Log.d("Saving PLayer Stats", "levels unlocked = ${player.levelsUnlocked}")
+            }
+        }
+    }
 }

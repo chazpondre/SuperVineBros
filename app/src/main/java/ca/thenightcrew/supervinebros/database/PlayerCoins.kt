@@ -6,11 +6,15 @@ import androidx.room.*
 data class PlayerCoins(val playerId: String, val date: Int)
 
 @Dao
-interface PlayerCoinsDAO {
+interface PlayerCoinsDAO: Rankable {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(playerCoins: PlayerCoins): Int
+    suspend fun add(playerCoins: PlayerCoins)
 
-    @Query("SELECT playerId, date, amount from PlayerCoins natural join (SELECT date, amount FROM Score ORDER BY amount DESC LIMIT 10)")
-    suspend fun getTop10(): List<PlayerDateAmount>
+    @Query("SELECT playerId, date, amount from PlayerCoins natural join " +
+            "(SELECT date, amount FROM Coins ORDER BY amount DESC LIMIT 10) ORDER BY amount DESC")
+    override suspend fun getTop10(): List<PlayerDateAmount>
+
+    @Query("SELECT max(amount) FROM (SELECT * FROM Coins natural join (SELECT date FROM PlayerCoins WHERE playerId = :playerId))")
+    fun getTopCoins(playerId: String): Int
 }
 

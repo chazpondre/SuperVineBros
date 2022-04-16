@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import ca.thenightcrew.supervinebros.R
-import ca.thenightcrew.supervinebros.game_engine.UserInfo
+import ca.thenightcrew.supervinebros.game_engine.AppInfo
 import ca.thenightcrew.supervinebros.game_engine.Utils
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class SplashFragment : Fragment() {
@@ -35,10 +33,12 @@ class SplashFragment : Fragment() {
     private fun gotoNextScreen() {
         this@SplashFragment.context?.also {
             Utils.Threads.runOnMainThread(it) {
-                if (UserInfo.currentUser == null) {
+                if (AppInfo.player == null) {
                     val action = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
                     requireView().findNavController().navigate(action)
                 } else {
+                    val action = SplashFragmentDirections.actionSplashFragmentToMenuFragment()
+                    requireView().findNavController().navigate(action)
                 }
             }
         }

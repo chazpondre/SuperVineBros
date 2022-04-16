@@ -35,6 +35,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_splashFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -51,6 +54,9 @@
         <action
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_rankingsFragment"
+            app:destination="@id/rankingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -70,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNewUserFragment"
-        android:name="ca.thenightcrew.supervinebros.database.CreateNewUserFragment"
+        android:name="ca.thenightcrew.supervinebros.fragments.CreateNewUserFragment"
         android:label="CreateNewUserFragment" >
         <action
             android:id="@+id/action_createNewUserFragment_to_loginFragment"
@@ -80,5 +86,29 @@
             app:destination="@id/menuFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/rankingsFragment"
+        android:name="ca.thenightcrew.supervinebros.fragments.RankingsFragment"
+        android:label="fragment_rankings"
+        tools:layout="@layout/fragment_rankings" >
+        <action
+            android:id="@+id/action_rankingsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_rankingsFragment_to_detailPlayerFragment"
+            app:destination="@id/detailPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPlayerFragment"
+        android:name="ca.thenightcrew.supervinebros.fragments.DetailPlayerFragment"
+        android:label="fragment_detail_player"
+        tools:layout="@layout/fragment_detail_player" >
+        <action
+            android:id="@+id/action_detailPlayerFragment_to_rankingsFragment"
+            app:destination="@id/rankingsFragment" />
+        <argument
+            android:name="playerID"
+            app:argType="string" />
     </fragment>
 </navigation>

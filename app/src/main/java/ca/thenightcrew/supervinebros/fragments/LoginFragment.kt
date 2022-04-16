@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import ca.thenightcrew.supervinebros.R
 import ca.thenightcrew.supervinebros.database.Player
 import ca.thenightcrew.supervinebros.db
-import ca.thenightcrew.supervinebros.game_engine.UserInfo
+import ca.thenightcrew.supervinebros.game_engine.AppInfo
 import ca.thenightcrew.supervinebros.game_engine.Utils
 import kotlinx.coroutines.runBlocking
 
@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
 
     private fun loginUser(user: Player?, view: View) {
         if (user != null) {
-            UserInfo.set(user.id)
+            AppInfo.player = user
             val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment()
             Utils.Threads.runOnMainThread(view.context) {
                 view.findNavController().navigate(action)

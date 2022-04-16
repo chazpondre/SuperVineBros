@@ -12,6 +12,7 @@ interface LevelEventHandler {
     val animationEngine: AnimationEngine
     val backButton: View
     val welcomeScreen: View
+    fun save()
 
     /** The event called when a level is completed */
     fun onLevelComplete(){
@@ -21,6 +22,8 @@ interface LevelEventHandler {
 
     /** The event called when another level need to be loaded  */
     fun onNextLevel(){
+//        animationEngine.kill()
+        save()
         backButton.callOnClick()
     }
 

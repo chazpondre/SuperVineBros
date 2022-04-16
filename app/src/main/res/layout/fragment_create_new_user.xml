@@ -76,8 +76,8 @@
         android:id="@+id/create_user_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Create New User"
+        android:layout_marginBottom="52dp"
+        android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/createPassword" />
 

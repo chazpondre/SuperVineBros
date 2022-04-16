@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DetailPlayerFragment">
+
+    <TextView
+        android:id="@+id/detail_player_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="@font/digital_font"
+        android:textColor="@color/purple_500"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bowser" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/detail_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@+string/Back"
+
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/grey"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <TextView
+        android:id="@+id/detailcat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/digital_font"
+        android:text="Score:"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailcat1" />
+
+    <TextView
+        android:id="@+id/detailcat1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/digital_font"
+        android:text="Stars:"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_player_name" />
+
+    <TextView
+        android:id="@+id/detailStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/digital_font"
+        android:textColor="@color/purple_500"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/detailcat1"
+        app:layout_constraintStart_toEndOf="@+id/detailcat1"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/detailScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/digital_font"
+        android:textColor="@color/purple_500"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/detailcat2"
+        app:layout_constraintStart_toStartOf="@+id/detailStars"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/detailCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/digital_font"
+        android:textColor="@color/purple_500"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/detailcat3"
+        app:layout_constraintStart_toStartOf="@+id/detailScore"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/detailcat3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/digital_font"
+        android:text="Coins:"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailcat2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

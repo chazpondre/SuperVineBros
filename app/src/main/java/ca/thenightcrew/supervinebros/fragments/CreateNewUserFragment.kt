@@ -1,4 +1,4 @@
-package ca.thenightcrew.supervinebros.database
+package ca.thenightcrew.supervinebros.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.navigation.findNavController
 import ca.thenightcrew.supervinebros.R
+import ca.thenightcrew.supervinebros.database.Player
 import ca.thenightcrew.supervinebros.db
+import ca.thenightcrew.supervinebros.game_engine.AppInfo
 import ca.thenightcrew.supervinebros.game_engine.Utils
 import kotlinx.coroutines.runBlocking
 
@@ -47,7 +49,9 @@ class CreateNewUserFragment : Fragment() {
                             usernameInput.error = "Username Already Taken"
                         }
 
-                    db.player().add(Player(username, 0, 0, password, 3))
+                    val player = Player(username, 0, 0, password, 3)
+                    db.player().add(player)
+                    AppInfo.player = player
 
                     Utils.Threads.runOnMainThread(view.context) {
                         val action =
