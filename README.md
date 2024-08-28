@@ -13,3 +13,7 @@ The objective is to reach the end of the level unscathed.
 - **Classic Scrolling Gameplay**: Inspired by side-scrolling platformers, but with a vertical twist.
 - **Intuitive Swipe Controls**: Swipe left and right to control your character's movement as they navigate down the vine.
 - **Retro Sprite Aesthetic**: Nostalgic visuals reminiscent of classic games, bringing a familiar yet fresh experience.
+
+
+https://github.com/user-attachments/assets/5b7ae43b-9765-4cfc-ba49-8a0e772e142f
+
